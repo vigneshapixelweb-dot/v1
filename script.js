@@ -1,11 +1,13 @@
 const heartsLayer = document.getElementById("hearts");
 const balloonsLayer = document.getElementById("balloons");
 const loveBtn = document.getElementById("loveBtn");
+const memoriesBtn = document.getElementById("memoriesBtn");
 const secret = document.getElementById("secret");
 const gameZone = document.getElementById("gameZone");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const answerText = document.getElementById("answerText");
+const photosSection = document.querySelector(".photos");
 
 function spawnHeart(x = Math.random() * window.innerWidth) {
   const heart = document.createElement("span");
@@ -55,29 +57,29 @@ loveBtn.addEventListener("click", () => {
 });
 
 function moveNoButton() {
-  if (!gameZone || !yesBtn) return;
+  if (!gameZone || !noBtn) return;
   const zoneRect = gameZone.getBoundingClientRect();
-  const btnRect = yesBtn.getBoundingClientRect();
+  const btnRect = noBtn.getBoundingClientRect();
   const padding = 8;
   const maxX = zoneRect.width - btnRect.width - padding;
   const maxY = zoneRect.height - btnRect.height - padding;
   const x = Math.max(padding, Math.random() * maxX);
   const y = Math.max(padding, Math.random() * maxY);
-  yesBtn.style.left = `${x}px`;
-  yesBtn.style.top = `${y}px`;
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
 }
 
-if (yesBtn) {
-  yesBtn.addEventListener("mouseenter", moveNoButton);
-  yesBtn.addEventListener("touchstart", (event) => {
+if (noBtn) {
+  noBtn.addEventListener("mouseenter", moveNoButton);
+  noBtn.addEventListener("touchstart", (event) => {
     event.preventDefault();
     moveNoButton();
   });
 }
 
-if (gameZone && yesBtn) {
+if (gameZone && noBtn) {
   gameZone.addEventListener("mousemove", (event) => {
-    const rect = yesBtn.getBoundingClientRect();
+    const rect = noBtn.getBoundingClientRect();
     const distX = Math.abs(event.clientX - (rect.left + rect.width / 2));
     const distY = Math.abs(event.clientY - (rect.top + rect.height / 2));
     if (distX < 85 && distY < 55) {
@@ -88,10 +90,22 @@ if (gameZone && yesBtn) {
 
 if (yesBtn) {
   yesBtn.addEventListener("click", () => {
-    answerText.textContent = "YES";
+    answerText.textContent = "Yay! Best answer ever.";
     for (let i = 0; i < 28; i += 1) {
       setTimeout(() => spawnHeart(window.innerWidth * (0.25 + Math.random() * 0.5)), i * 70);
     }
+  });
+}
+
+if (noBtn) {
+  noBtn.addEventListener("click", () => {
+    answerText.textContent = "No option unavailable today.";
+  });
+}
+
+if (memoriesBtn && photosSection) {
+  memoriesBtn.addEventListener("click", () => {
+    photosSection.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 

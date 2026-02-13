@@ -85,6 +85,25 @@ body {
   padding: 2.2rem 1.4rem;
 }
 
+.hero-line {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+  font-weight: 700;
+}
+
+.hero-subline {
+  margin: 0 auto 1rem;
+  max-width: 44ch;
+  color: color-mix(in oklab, var(--wine) 85%, #ffffff);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -121,6 +140,24 @@ h2 {
   box-shadow: 0 10px 22px rgba(183, 46, 90, 0.4);
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
   animation: pulseGlow 2.2s ease-in-out infinite;
+}
+
+.ghost-btn {
+  border: 1px solid rgba(183, 46, 90, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--wine);
+  font-weight: 700;
+  padding: 0.8rem 1.3rem;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.ghost-btn:hover,
+.ghost-btn:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 22px rgba(125, 31, 61, 0.18);
 }
 
 .love-btn:hover,
@@ -210,6 +247,31 @@ h2 {
   box-shadow: 0 10px 20px rgba(125, 31, 61, 0.18);
 }
 
+.notes-grid {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.note-item {
+  margin: 0;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 239, 245, 0.78));
+  border: 1px solid rgba(199, 62, 106, 0.15);
+  border-radius: 14px;
+  padding: 0.9rem;
+}
+
+.note-item h3 {
+  margin: 0 0 0.3rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+}
+
+.note-item p {
+  margin: 0;
+}
+
 .game p {
   margin: 0.45rem 0 1rem;
 }
@@ -243,6 +305,11 @@ h2 {
 .choice.no {
   left: 58%;
   background: linear-gradient(135deg, #7b4964, #5f2f47);
+}
+
+.choice:hover,
+.choice:focus-visible {
+  transform: translateY(-2px) scale(1.02);
 }
 
 .answer-text {
@@ -409,6 +476,10 @@ h2 {
   }
 
   .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notes-grid {
     grid-template-columns: 1fr;
   }
 
