@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Valentine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div id="hearts" aria-hidden="true"></div>
+    <div id="balloons" aria-hidden="true"></div>
+
+    <main class="page">
+      <section class="hero card reveal">
+        <p class="eyebrow">Valentine</p>
+        <h1>For You</h1>
+        <button id="loveBtn" class="love-btn" type="button">
+          Surprise
+        </button>
+        <p id="secret" class="secret" aria-live="polite">
+          Love You
+        </p>
+      </section>
+
+      <section class="photos card reveal">
+        <h2>Photos</h2>
+        <div class="photo-grid">
+          <figure class="photo-card tilt-a">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80" alt="Couple walking at sunset" />
+          </figure>
+          <figure class="photo-card tilt-b">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80" alt="Romantic city lights and couple" />
+          </figure>
+          <figure class="photo-card tilt-c">
+            <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?auto=format&fit=crop&w=900&q=80" alt="Hands holding heart shape" />
+          </figure>
+          <figure class="photo-card tilt-b">
+            <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=900&q=80" alt="Couple hugging in city" />
+          </figure>
+          <figure class="photo-card tilt-c">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80" alt="Hands and flower bouquet" />
+          </figure>
+          <figure class="photo-card tilt-a">
+            <img src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&w=900&q=80" alt="Romantic sunset by sea" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="strip card reveal" aria-label="Animated memories">
+        <div class="strip-track">
+          <img src="https://images.unsplash.com/photo-1501901609772-df0848060b33?auto=format&fit=crop&w=900&q=80" alt="Romantic memory 1" />
+          <img src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?auto=format&fit=crop&w=900&q=80" alt="Romantic memory 2" />
+          <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80" alt="Romantic memory 3" />
+          <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=80" alt="Romantic memory 4" />
+          <img src="https://images.unsplash.com/photo-1501901609772-df0848060b33?auto=format&fit=crop&w=900&q=80" alt="" />
+          <img src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?auto=format&fit=crop&w=900&q=80" alt="" />
+          <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80" alt="" />
+          <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=80" alt="" />
+        </div>
+      </section>
+
+      <section class="game card reveal">
+        <h2>?</h2>
+        <div id="gameZone" class="game-zone">
+          <button id="yesBtn" class="choice yes" type="button">Yes</button>
+          <button id="noBtn" class="choice no" type="button">No</button>
+        </div>
+        <p id="answerText" class="answer-text" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
