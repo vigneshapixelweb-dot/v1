@@ -56,49 +56,46 @@ loveBtn.addEventListener("click", () => {
   }
 });
 
-function moveNoButton() {
-  if (!gameZone || !noBtn) return;
+function moveYesButton() {
+  if (!gameZone || !yesBtn) return;
   const zoneRect = gameZone.getBoundingClientRect();
-  const btnRect = noBtn.getBoundingClientRect();
+  const btnRect = yesBtn.getBoundingClientRect();
   const padding = 8;
   const maxX = zoneRect.width - btnRect.width - padding;
   const maxY = zoneRect.height - btnRect.height - padding;
   const x = Math.max(padding, Math.random() * maxX);
   const y = Math.max(padding, Math.random() * maxY);
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
-}
-
-if (noBtn) {
-  noBtn.addEventListener("mouseenter", moveNoButton);
-  noBtn.addEventListener("touchstart", (event) => {
-    event.preventDefault();
-    moveNoButton();
-  });
-  noBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    moveNoButton();
-    answerText.textContent = "No is not available. Try Yes.";
-  });
-}
-
-if (gameZone && noBtn) {
-  gameZone.addEventListener("mousemove", (event) => {
-    const rect = noBtn.getBoundingClientRect();
-    const distX = Math.abs(event.clientX - (rect.left + rect.width / 2));
-    const distY = Math.abs(event.clientY - (rect.top + rect.height / 2));
-    if (distX < 85 && distY < 55) {
-      moveNoButton();
-    }
-  });
+  yesBtn.style.left = `${x}px`;
+  yesBtn.style.top = `${y}px`;
 }
 
 if (yesBtn) {
-  yesBtn.addEventListener("click", () => {
-    answerText.textContent = "Yay! Best answer ever.";
-    for (let i = 0; i < 28; i += 1) {
-      setTimeout(() => spawnHeart(window.innerWidth * (0.25 + Math.random() * 0.5)), i * 70);
+  yesBtn.addEventListener("mouseenter", moveYesButton);
+  yesBtn.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+    moveYesButton();
+  });
+  yesBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    moveYesButton();
+    answerText.textContent = "Yes is moving. Try No.";
+  });
+}
+
+if (gameZone && yesBtn) {
+  gameZone.addEventListener("mousemove", (event) => {
+    const rect = yesBtn.getBoundingClientRect();
+    const distX = Math.abs(event.clientX - (rect.left + rect.width / 2));
+    const distY = Math.abs(event.clientY - (rect.top + rect.height / 2));
+    if (distX < 85 && distY < 55) {
+      moveYesButton();
     }
+  });
+}
+
+if (noBtn) {
+  noBtn.addEventListener("click", () => {
+    answerText.textContent = "Perfect, No selected.";
   });
 }
 
