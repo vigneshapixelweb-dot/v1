@@ -294,6 +294,8 @@ h2 {
   font-weight: 700;
   padding: 0.65rem 1.1rem;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
   transition: transform 140ms ease, left 260ms ease, top 260ms ease;
 }
 

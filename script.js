@@ -75,6 +75,11 @@ if (noBtn) {
     event.preventDefault();
     moveNoButton();
   });
+  noBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    moveNoButton();
+    answerText.textContent = "No is not available. Try Yes.";
+  });
 }
 
 if (gameZone && noBtn) {
@@ -94,12 +99,6 @@ if (yesBtn) {
     for (let i = 0; i < 28; i += 1) {
       setTimeout(() => spawnHeart(window.innerWidth * (0.25 + Math.random() * 0.5)), i * 70);
     }
-  });
-}
-
-if (noBtn) {
-  noBtn.addEventListener("click", () => {
-    answerText.textContent = "No option unavailable today.";
   });
 }
 
